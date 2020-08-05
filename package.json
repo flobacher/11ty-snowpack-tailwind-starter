@@ -20,15 +20,15 @@
     "name": "Florian Bacher",
     "email": "florian.bacher@lean-coders.at"
   },
-  "license": "UNLICENSED",
+  "license": "MIT",
   "sideEffects": false,
   "scripts": {
-    "clean": "rimraf dist",
     "start": "cross-env NODE_ENV=development run-s clean \"snowpack -- dev\"",
-    "snowpack": "snowpack",
-    "eleventy": "eleventy",
+    "test": "echo \"This template does not include a test runner by default.\" && exit 1",
     "build": "cross-env NODE_ENV=production run-s clean snowpack \"snowpack -- build\"",
-    "test": "echo \"This template does not include a test runner by default.\" && exit 1"
+    "clean": "rimraf dist",
+    "snowpack": "snowpack",
+    "eleventy": "eleventy"
   },
   "devDependencies": {
     "@11ty/eleventy": "^0.11.0",
