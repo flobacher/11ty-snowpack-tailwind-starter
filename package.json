@@ -1,0 +1,63 @@
+{
+  "name": "11ty-snowpack-tailwind-starter",
+  "version": "0.0.1",
+  "description": "11ty + Snowpack + tailwindcss",
+  "private": true,
+  "engines": {
+    "node": "12.x.x",
+    "npm": "6.x.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "11ty",
+    "snowpack",
+    "tailwindcss"
+  ],
+  "author": {
+    "name": "Florian Bacher",
+    "email": "florian.bacher@lean-coders.at"
+  },
+  "license": "UNLICENSED",
+  "sideEffects": false,
+  "scripts": {
+    "clean": "rimraf dist",
+    "start": "cross-env NODE_ENV=development run-s clean \"snowpack -- dev\"",
+    "snowpack": "snowpack",
+    "eleventy": "eleventy",
+    "build": "cross-env NODE_ENV=production run-s clean snowpack \"snowpack -- build\"",
+    "test": "echo \"This template does not include a test runner by default.\" && exit 1"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^0.11.0",
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
+    "@snowpack/plugin-babel": "^1.4.0",
+    "@snowpack/plugin-parcel": "^2.0.2",
+    "cross-env": "^7.0.2",
+    "cssnano": "^4.1.10",
+    "eleventy-plugin-error-overlay": "^0.1.2",
+    "eslint": "^7.3.1",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-html": "^6.0.2",
+    "eslint-plugin-import": "^2.21.2",
+    "eslint-plugin-prettier": "^3.1.4",
+    "liquidjs": "^9.12.0",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^7.0.32",
+    "postcss-cli": "^7.1.1",
+    "postcss-import": "^12.0.1",
+    "postcss-import-url": "^5.1.0",
+    "postcss-preset-env": "^6.7.0",
+    "prettier": "^2.0.5",
+    "rimraf": "^3.0.2",
+    "snowpack": "^2.7.5",
+    "tailwindcss": "^1.6.2"
+  },
+  "dependencies": {
+    "swiper": "^6.0.4"
+  }
+}

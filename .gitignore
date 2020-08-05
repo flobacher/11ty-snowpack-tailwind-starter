@@ -1,0 +1,25 @@
+# dependecies installed by npm
+node_modules
+web_modules
+
+# build artefacts
+dist
+tmp
+
+# secrets
+.env
+
+# logs
+*.log
+
+# System Files
+.DS_Store
+Thumbs.db
+
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
