@@ -1,7 +1,6 @@
-# 📦 11st-Starter-Kit
+# 📦 11ty-snowpack-tailwind-starter
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/ec6da587-72ba-490a-ad4b-167802a9c197/deploy-status)](https://app.netlify.com/sites/11st-starter-kit/deploys)
 
 [11ty](https://www.11ty.dev/), powered by [Snowpack](https://www.snowpack.dev/)
 with [tailwindcss](https://tailwindcss.com).
@@ -36,7 +35,7 @@ npm run build
 Your app is ready to be deployed!
 
 To increase the production performance
-[@snowpack/plugin-parcel](https://github.com/pikapkg/create-snowpack-app/tree/master/packages/plugin-parcel)
+[@snowpack/plugin-webpack](https://www.npmjs.com/package/@snowpack/plugin-webpack)
 is added to the `snowpack.config.json` config file.
 
 ## License

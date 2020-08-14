@@ -5,7 +5,7 @@ web_modules
 # build artefacts
 dist
 tmp
-
+views
 # secrets
 .env
 

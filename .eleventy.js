@@ -2,8 +2,10 @@ const { Liquid } = require('liquidjs');
 const ErrorOverlay = require('eleventy-plugin-error-overlay');
 // const fs = require('fs');
 
+const outputDir = process.env.NODE_ENV === 'development' ? 'views' : 'dist';
+
 const liquidOptions = {
-  extname: '.liquid',
+  extname: '.html',
   strict_filters: true,
   root: ['views/_includes'],
 };
@@ -14,7 +16,7 @@ module.exports = function (config) {
   config.setLibrary('liquid', liquidEngine);
 
   // Layout aliases
-  config.addLayoutAlias('default', 'layouts/base.liquid');
+  config.addLayoutAlias('default', 'layouts/default.html');
 
   // 11ty error overlay
   // https://github.com/stevenpetryk/eleventy-plugin-error-overlay
@@ -34,14 +36,16 @@ module.exports = function (config) {
   //     },
   //   },
   // });
+  config.addPassthroughCopy('content/images');
 
   return {
     dir: {
       input: 'src/views',
-      output: 'dist',
+      output: outputDir,
+      data: '../../content/data', // relative to the input directory
     },
     passthroughFileCopy: true,
-    templateFormats: ['md', 'liquid'],
+    templateFormats: ['md', 'liquid', 'html'],
     htmlTemplateEngine: 'liquid',
     markdownTemplateEngine: 'liquid',
   };

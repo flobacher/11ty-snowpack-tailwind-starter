@@ -1,4 +1,6 @@
 # Ignore dist files
 dist/*
+content/*
+src/views/*
 node_modules/*
 web_modules/*
