@@ -1,7 +1,7 @@
 {
-  "name": "11ty-snowpack-tailwind-starter",
+  "name": "11ty-snowpack-starter",
   "version": "0.0.1",
-  "description": "11ty + Snowpack + tailwindcss",
+  "description": "11ty + Snowpack",
   "private": true,
   "engines": {
     "node": "12.x.x",
@@ -13,8 +13,7 @@
   },
   "keywords": [
     "11ty",
-    "snowpack",
-    "tailwindcss"
+    "snowpack"
   ],
   "author": {
     "name": "Florian Bacher",
@@ -25,7 +24,8 @@
   "scripts": {
     "start": "cross-env NODE_ENV=\"development\" run-s clean:views \"snowpack -- dev\"",
     "test": "echo \"This template does not include a test runner by default.\" && exit 1",
-    "update:content": "run-s clean:views clean:dist:views build:views",
+    "update:content": "run-s clean:dist:views build:views",
+    "update:content:dev": "cross-env NODE_ENV=\"development\" run-s clean:views eleventy",
     "build": "run-s build:*",
     "build:views": "cross-env NODE_ENV=\"production\" eleventy",
     "build:transpile": "cross-env NODE_ENV=\"production\" snowpack build",
@@ -57,6 +57,7 @@
     "eslint": "^7.3.1",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-import": "^2.21.2",
+    "html-minifier": "^4.0.0",
     "liquidjs": "^9.12.0",
     "npm-run-all": "^4.1.5",
     "postcss": "^7.0.32",

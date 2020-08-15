@@ -1,9 +1,15 @@
-# 📦 11ty-snowpack-tailwind-starter
+# 📦 11ty-snowpack-starter by lean-coders
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[11ty](https://www.11ty.dev/), powered by [Snowpack](https://www.snowpack.dev/).
+Get blazing fast updates if only altering/adding content thx to eleventy. Get fast rebuilds in dev-mode thx to snowpack and bundle only for production.
 
-[11ty](https://www.11ty.dev/), powered by [Snowpack](https://www.snowpack.dev/)
-with [tailwindcss](https://tailwindcss.com).
+In addition the following libraries / tools are installed and configured:
+
+- [postcss](https://postcss.com): []()optimize imports, setup [tailwindcss](https://tailwindcss.com), transpile css for older browsers with [postcss-preset-env]() and minify via [cssnano]() in production
+- [rollup](https://rollup.com): bundle for production via rollup for optimal performance, uses [babel](https://babel.com) to transpile code for old browsers with the help of preset-env (only in production) and [terser](http://terser.com) to minify
+- [typescript](https://typescriptlang.com): optionally static type-checks
+- [prettier](https://prettier.io): never manually format your code again
+- [eslint](https://eslint.io): lint your code to avoid common mistakes (preconfigured for typescript)
 
 ## Install Dependencies
 
@@ -35,9 +41,10 @@ npm run build
 Your app is ready to be deployed!
 
 To increase the production performance
-[@snowpack/plugin-webpack](https://www.npmjs.com/package/@snowpack/plugin-webpack)
+[@snowpack/plugin-rollup](https://www.npmjs.com/package/@snowpack/plugin-webpack)
 is added to the `snowpack.config.json` config file.
 
 ## License
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 This project is open source and available under the MIT License.

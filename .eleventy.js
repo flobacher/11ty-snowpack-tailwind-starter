@@ -1,8 +1,10 @@
 const { Liquid } = require('liquidjs');
 const ErrorOverlay = require('eleventy-plugin-error-overlay');
+const htmlMinifier = require('html-minifier');
 // const fs = require('fs');
 
-const outputDir = process.env.NODE_ENV === 'development' ? 'views' : 'dist';
+const isProduction = process.env.NODE_ENV === 'production';
+const outputDir = isProduction ? 'dist' : 'views';
 
 const liquidOptions = {
   extname: '.html',
@@ -12,15 +14,15 @@ const liquidOptions = {
 
 const liquidEngine = new Liquid(liquidOptions);
 
-module.exports = function (config) {
-  config.setLibrary('liquid', liquidEngine);
+module.exports = function (eleventyConfig) {
+  eleventyConfig.setLibrary('liquid', liquidEngine);
 
   // Layout aliases
-  config.addLayoutAlias('default', 'layouts/default.html');
+  eleventyConfig.addLayoutAlias('default', 'layouts/default.html');
 
   // 11ty error overlay
   // https://github.com/stevenpetryk/eleventy-plugin-error-overlay
-  config.addPlugin(ErrorOverlay);
+  eleventyConfig.addPlugin(ErrorOverlay);
 
   // 404
   // config.setBrowserSyncConfig({
@@ -36,7 +38,19 @@ module.exports = function (config) {
   //     },
   //   },
   // });
-  config.addPassthroughCopy('content/images');
+  eleventyConfig.addPassthroughCopy('content/images');
+  if (isProduction) {
+    eleventyConfig.addTransform('htmlMinifier', (content, outputPath) => {
+      if (outputPath.endsWith('.html')) {
+        return htmlMinifier.minify(content, {
+          useShortDoctype: true,
+          removeComments: true,
+          collapseWhitespace: true,
+        });
+      }
+      return content;
+    });
+  }
 
   return {
     dir: {
